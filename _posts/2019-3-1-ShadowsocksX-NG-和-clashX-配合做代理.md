@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      ShadowsocksX-NG && clashX 配合做代理
+title:      ShadowsocksR && clash for windows，ShadowsocksX-NG && clashX 配合做代理
 subtitle:   
 date:       2019-3-1
 author:     benjamingao
@@ -21,15 +21,17 @@ tags:
 
 ### 这样配合的作用
 
-- 能够是 clashX “使用” SSR 协议
+- 能够是 clash “使用” SSR 协议
 
-## ShadowsocksX-NG
+## macOS
+
+### ShadowsocksX-NG
 
 > 软件版本：版本 1.4.3-R8 (2)
 
 - ShadowsocksX-NG 里设代理模式为 **手动模式**
 
-## clashX
+### clashX
 
 > 软件版本：1.9.5
 
@@ -57,6 +59,45 @@ Proxy Group:
 ### 补充图片
 
 ![](https://ws1.sinaimg.cn/large/005Fm2E0ly1g0nmvjyzzfj30dc03lt8y.jpg)
+
+## windows
+
+### shadowsocksR
+
+这样设置：
+
+![](https://ws1.sinaimg.cn/large/005Fm2E0ly1g0ppg469j2j30bw0axmxl.jpg)
+
+### clash for windows
+
+- 编辑配置文件，假设你已经理解配置文件了
+
+```yaml
+Proxy:
+# name：随意，我这里是 socks;
+# type：不可更改
+# server：一般本地都是这个地址
+# port：这里的端口填写 shadowsocksR 里高级设置的本地 socks5 监听端口
+
+# socks5
+- { name: "socks", type: socks5, server: 127.0.0.1, port: 1080 }
+
+Proxy Group:
+# name：依据 Rule 所对应的修改
+# type：不可更改
+# proxies：不可更改
+
+# select
+- { name: "Proxy", type: select, proxies: ["socks"] }
+```
+
+![](https://ws1.sinaimg.cn/large/005Fm2E0ly1g0ppjfqi5aj30h70ef0tf.jpg)
+
+#### clash for windows 代理成功的表现：
+
+登陆谷歌，注意 General 里 System proxy 要打钩。
+
+![](https://ws1.sinaimg.cn/large/005Fm2E0ly1g0ppjomtjpj30wi0r0wmp.jpg)
 
 ## Bug
 
