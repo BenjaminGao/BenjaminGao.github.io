@@ -46,7 +46,7 @@ Proxy:
 - { name: "socks", type: socks5, server: 127.0.0.1, port: 1086 }
 
 Proxy Group:
-# name：随意
+# name：依据 Rule 所对应的修改
 # type：不可更改
 # proxies：不可更改
 
